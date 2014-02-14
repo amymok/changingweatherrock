@@ -47,13 +47,13 @@ class CurrentWeather < Struct.new(:response)
     temp_f = response['current_observation']['temp_f']
     case
     when temp_f <= FREEZE_TEMP
-      "Yup!"
+      "It is freezing"
     when temp_f > FREEZE_TEMP && temp_f <= WARM_TEMP
-      "Nope, but it is still a bit chilly"
+      "It is a bit chilly"
     when temp_f > WARM_TEMP && temp_f <= HOT_TEMP
-      "Nope, it is super nice and warm outside!"
+      "It is super nice and warm"
     else
-      "Nope, it is burning hot!!"
+      "It is burning hot"
     end
    end
 
