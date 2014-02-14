@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What does the weather rock say?</title>
+    <link rel="stylesheet" href="<%= url('stylesheets/animations.css') %>">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <script type="text/javascript" src="//use.typekit.net/gvp7wrm.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <style>
+    html {
+    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
+    }
+    body{
+      background-color: #F4F4F4;
+      font-family: "proxima-nova", sans-serif;
+      text-align: center;
+    }
+    h1 {
+    color: #222222;
+    font-size: 90px;
+    line-height: 1;
+    margin-bottom: 90px;
+    margin-top: 90px;
+    text-align: center;
+    }
+    h2 {font-size: 30px;}
+    .bottom {
+  margin-top: 100px;
+  text-align: center;
+  }
+  #forecast {
+    margin: 0 auto;
+    max-width: 940px;
+  }
+    #forecast img {
+    width: 300px;
+    }    
+    .credits {
+      text-align: center;
+    }
+    a{
+      color: #888;
+      transition: all 300ms ease 0s;
+      -webkit-transition: transition: all 300ms ease 0s;
+    }
+    a:hover {
+    color: #FF69B4;
+    }
+    ul {
+      text-align: center;
+      list-style-type: none;
+      padding: 0;
+    }
+    .viewsource {
+      text-align: center;
+      margin-top: 1.5em;
+    }
+    #icon {
+        margin: 100px auto -100px;
+        display: block;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="forecast">
+    
+    <!--- Edit the following line -->
+    
+    <h1>What does the weather rock say?</h1>
+    <img class="animate tossing" src="/rock.png">
+    <h2><%= @weather.freezing? %> in <%= @weather.city_state %></h2>
+
+    <p>Updated <%= @weather.last_updated %> ago</p>
+    
+    <!-- Don't edit past this point -->
+
+    </div>
+    
+    <div class="bottom">
+      <p>Why listen to those fancy weathermen when you have the <a target="_blank" href="http://en.wikipedia.org/wiki/Weather_rock">weather rock</a>?</p>
+
+      <a target="_blank" href="http://www.isitsnowinginatlantaga.com/">atlanta, ga</a>
+      <span>&nbsp;&#183;&nbsp;</span>
+      <a target="_blank" href="http://isitsnowingincharlotte.com/">charlotte, nc</a>
+      <span>&nbsp;&#183;&nbsp;</span>           
+      <a target="_blank" href="http://isitsnowinginchattanooga.com/">chattanooga, tn</a>
+      <span>&nbsp;&#183;&nbsp;</span>      
+      <a target="_blank" href="http://www.snowinginlex.com/">lexington, ky</a>
+      <span>&nbsp;&#183;&nbsp;</span>
+      <a target="_blank" href="http://www.snowed-island.com/">rhode island</a>
+      <span>&nbsp;&#183;&nbsp;</span>
+      <a target="_blank" href="http://humedadsanjuan.com/">san juan, pr</a>
+      <p class="credits">made by <a target="_blank" href="http://maya-benari.com">maya</a> + <a href="https://twitter.com/amymok">amy</a> + <a href="http://techzans.com/">CfA San Antonio</a></p>    
+      <a target="_blank" href="https://github.com/amymok/changingweatherrock">
+      <img src="GitHub-Mark-32px.png">
+      </a>        
+    </div>
+
+  <pre style="display:none;"><%= JSON.pretty_generate @weather.response %></pre>
+
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '<%= ENV['GAUGES'] %>');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+</body>
+</html>
